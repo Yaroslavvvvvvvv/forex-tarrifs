@@ -1,0 +1,16 @@
+.p-overlaypanel.app-popover {
+  background: var(--app-popover-bg);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  box-shadow: var(--app-popover-shadow);
+
+  .p-overlaypanel-content {
+    padding: 8px 6px;
+  }
+
+  &::before,
+  &::after {
+    display: none;
+  }
+}

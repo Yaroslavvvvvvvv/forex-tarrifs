@@ -1,0 +1,414 @@
+.tariff-card {
+  width: calc((100% - 18px * 3) / 4);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 20px 16px 18px 16px;
+  border-radius: 32px;
+  border: 1px solid var(--app-card-border);
+  background: var(--app-card-bg);
+  box-shadow: var(--app-card-shadow);
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease;
+
+  &__badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    padding: 0 10px;
+    border-radius: 50px;
+    border: 1px solid transparent;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.24px;
+    text-transform: uppercase;
+    color: #fff;
+    white-space: nowrap;
+
+    background:
+      linear-gradient(95.9deg, var(--app-accent) 5%, var(--app-accent-2) 114%) padding-box,
+      linear-gradient(180deg, var(--app-stroke-from) 0%, var(--app-stroke-to) 100%) border-box;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px 12px;
+    border-radius: 16.667px;
+    background: var(--app-title-bg);
+    overflow: hidden;
+    transition: background 0.3s ease;
+  }
+
+  &__head {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  &__heading {
+    flex: 1 0 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__name {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.13;
+    letter-spacing: -0.96px;
+    color: var(--app-title-text);
+  }
+
+  &__price {
+    margin: 0;
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+  }
+
+  &__amount {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.13;
+    letter-spacing: -0.96px;
+    color: var(--app-accent);
+    transition: color 0.3s ease;
+  }
+
+  &__period {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.13;
+    letter-spacing: -0.64px;
+    color: var(--app-soft);
+  }
+
+  &__charts {
+    display: grid;
+    gap: 6px;
+    justify-content: end;
+    justify-items: end;
+    color: var(--app-title-text);
+    flex-shrink: 0;
+
+    svg {
+      width: 20px;
+      height: auto;
+      display: block;
+    }
+
+    &--n2 {
+      grid-template-columns: repeat(2, auto);
+
+      svg:nth-child(1) {
+        grid-area: 1 / 2;
+      }
+      svg:nth-child(2) {
+        grid-area: 2 / 1;
+      }
+    }
+
+    &--n3 {
+      grid-template-columns: repeat(2, auto);
+
+      svg:nth-child(1) {
+        grid-area: 1 / 1 / 2 / 3;
+        justify-self: center;
+      }
+      svg:nth-child(2) {
+        grid-area: 2 / 1;
+      }
+      svg:nth-child(3) {
+        grid-area: 2 / 2;
+      }
+    }
+
+    &--n4 {
+      grid-template-columns: repeat(2, auto);
+    }
+    &--n6 {
+      grid-template-columns: repeat(3, auto);
+    }
+  }
+
+  &__spec {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 24px;
+    padding: 3px 5px 3px 9px;
+    border-radius: 999px;
+    background: var(--app-spec-bg);
+    border: 1px solid var(--app-pill-border);
+    backdrop-filter: blur(6px);
+  }
+
+  &__spec-text {
+    flex: 1 0 0;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: -0.24px;
+    color: var(--app-spec-text);
+  }
+
+  &__more {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    color: var(--app-more);
+    transition:
+      transform 0.3s ease,
+      color 0.3s ease;
+  }
+
+  &__terminals {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    background: var(--app-pill-bg);
+    border: 1px solid var(--app-pill-border);
+  }
+
+  &__term-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    letter-spacing: -0.56px;
+    color: var(--app-on-pill);
+  }
+
+  &__term-icon {
+    width: 14px;
+    height: auto;
+    color: var(--app-on-pill);
+  }
+
+  &__term-count {
+    margin-left: auto;
+    font-size: 14px;
+    letter-spacing: -0.56px;
+    color: var(--app-soft);
+  }
+
+  &__question {
+    width: 16px;
+    height: 16px;
+    color: var(--app-on-pill);
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &--tags {
+      margin-top: auto;
+    }
+  }
+
+  &__section-label {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.13;
+    letter-spacing: -0.48px;
+    text-transform: uppercase;
+    color: var(--app-soft);
+  }
+
+  &__features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  &__feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    background: var(--app-pill-bg);
+    border: 1px solid var(--app-pill-border);
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--app-on-pill);
+  }
+
+  &__check {
+    flex-shrink: 0;
+    width: 11px;
+    height: auto;
+    margin-top: 4px;
+    color: var(--app-check);
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  &__buy {
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      .app-button--outline {
+        border-color: transparent;
+        background: linear-gradient(95.9deg, var(--app-accent) 5%, var(--app-accent-2) 114%);
+        color: #fff;
+      }
+      .app-button--icon {
+        background: #fff;
+        border-color: #fff;
+        color: var(--app-accent);
+      }
+    }
+  }
+
+  &:hover {
+    border-color: transparent;
+    background: var(--app-card-bg-hover);
+
+    .tariff-card__title {
+      background: var(--app-title-hover-bg);
+    }
+    .tariff-card__amount {
+      color: #fff;
+    }
+  }
+
+  &:hover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(180deg, var(--app-stroke-from) 0%, var(--app-stroke-to) 100%);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 55%;
+    height: 14px;
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      var(--app-glow) 0%,
+      rgba(220, 165, 255, 0.2) 38%,
+      transparent 75%
+    );
+    pointer-events: none;
+    transition:
+      width 0.3s ease,
+      height 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 78%;
+    height: 16px;
+  }
+
+  &__params {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 236px;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 22px;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 14px;
+      line-height: 1.13;
+      letter-spacing: -0.56px;
+      background: linear-gradient(
+        90.35deg,
+        rgba(249, 240, 237, 0.3) 0%,
+        rgba(204, 203, 211, 0.16) 54%,
+        rgba(225, 220, 223, 0.3) 99%
+      );
+    }
+  }
+
+  &__param-name {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  &__param-value {
+    color: #fff;
+    text-align: right;
+    white-space: nowrap;
+  }
+}
+
+:root:not(.theme-dark) .tariff-card::after {
+  display: none;
+}
+
+:root:not(.theme-dark) .tariff-card:hover::before {
+  background: linear-gradient(180deg, #9a5fd0 0%, #4a2270 100%);
+}
+
+.app-popover__trigger--open .tariff-card__more {
+  transform: rotate(90deg);
+  color: #fff;
+}
+
+.app-popover__trigger--open .tariff-card__question {
+  opacity: 1;
+}
+
+@media screen and (max-width: 1200px) {
+  .tariff-card {
+    width: calc((100% - 18px) / 2);
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .tariff-card {
+    width: 100%;
+  }
+}

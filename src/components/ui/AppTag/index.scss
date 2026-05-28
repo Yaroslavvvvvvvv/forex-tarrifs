@@ -1,0 +1,14 @@
+.app-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1.13;
+  letter-spacing: -0.28px;
+  white-space: nowrap;
+  color: var(--app-chip-text);
+  background: var(--app-chip);
+  border: 1px solid var(--app-pill-border);
+}

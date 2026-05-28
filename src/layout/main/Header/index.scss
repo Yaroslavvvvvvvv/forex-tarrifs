@@ -1,0 +1,18 @@
+.app-header {
+  background: var(--app-surface);
+  border-bottom: 1px solid var(--app-border);
+
+  &__inner {
+    min-height: $header-height;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--app-text);
+  }
+}

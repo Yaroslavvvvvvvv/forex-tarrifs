@@ -1,0 +1,14 @@
+.app-select {
+  width: 100%;
+
+  &__value {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__icon {
+    font-size: 16px;
+    color: var(--app-text);
+  }
+}

@@ -1,0 +1,152 @@
+@use './reset';
+@use './transition';
+@use './prime/selectbutton';
+@use './prime/dropdown';
+@use './prime/overlay';
+
+:root {
+  --app-bg: radial-gradient(120% 90% at 50% 0%, #{$light-bg-center} 0%, #{$light-bg-edge} 70%);
+  --app-surface: #{$color-surface};
+  --app-border: #{$color-border};
+  --app-text: #{$color-text};
+  --app-muted: #7c708c;
+  --app-label: #{$light-label};
+
+  --app-accent: #{$color-accent};
+  --app-accent-soft: #{$dark-accent-soft};
+  --app-card: #{$color-surface};
+  --app-card-border: rgba(190, 78, 255, 0.5);
+  --app-pill: #efeafa;
+  --app-chip: rgba(145, 62, 245, 0.2);
+  --app-chip-text: #ffffff;
+  --app-hover: rgba(124, 77, 175, 0.07);
+
+  --app-segment-bg: #ffffff;
+  --app-segment-text: #1e132d;
+  --app-segment-shadow: 0 1px 3px rgba(16, 24, 40, 0.12);
+
+  --app-accent-2: #c830b9;
+  --app-stroke-from: #e6bcff;
+  --app-stroke-to: #6f2f95;
+  --app-popover-bg: #9a42e8;
+  --app-popover-shadow: 0 0 48px rgba(0, 0, 0, 0.2), 0 0 40px rgba(255, 74, 183, 0.2);
+  --app-spec-text: #2a1c3c;
+  --app-more: #9d92a5;
+  --app-title-hover-bg: linear-gradient(95.9deg, var(--app-accent-2) 0%, var(--app-accent) 114%);
+
+  --app-card-bg:
+    linear-gradient(91.46deg, rgba(190, 78, 255, 0.07) 38%, rgba(255, 74, 183, 0.07) 100%), #1a1026;
+  --app-card-bg-hover:
+    linear-gradient(91.46deg, rgba(190, 78, 255, 0.12) 38%, rgba(255, 74, 183, 0.12) 100%), #1a1026;
+  --app-card-shadow: 0 18px 44px rgba(80, 40, 120, 0.25);
+  --app-title-bg: #432b54;
+  --app-title-text: #ffedf8;
+  --app-soft: #f1ebfe;
+  --app-pill-bg: linear-gradient(
+    90deg,
+    rgba(83, 45, 114, 0.1) 0%,
+    rgba(83, 45, 114, 0.26) 50%,
+    rgba(83, 45, 114, 0.1) 100%
+  );
+  --app-pill-border: transparent;
+  --app-on-pill: #ffffff;
+  --app-spec-bg: rgba(255, 237, 248, 0.8);
+  --app-glow: rgba(255, 255, 255, 0.85);
+  --app-check: #fff599;
+}
+
+:root.theme-dark {
+  --app-bg: radial-gradient(120% 90% at 50% 0%, #{$dark-bg-center} 0%, #{$dark-bg-edge} 70%);
+  --app-surface: #1a1d24;
+  --app-border: #2a2f3a;
+  --app-text: #{$color-white};
+  --app-muted: #{$dark-muted};
+  --app-label: #{$dark-label};
+
+  --app-accent: #{$dark-accent};
+  --app-accent-soft: #{$dark-accent-soft};
+  --app-card: #{$dark-card};
+  --app-card-border: #{$dark-card-border};
+  --app-pill: #{$dark-pill};
+  --app-chip: #{$dark-chip};
+  --app-chip-text: #{$color-white};
+  --app-hover: rgba(255, 255, 255, 0.06);
+
+  --app-segment-bg: #eef0fb;
+  --app-segment-text: #1e132d;
+  --app-segment-shadow: none;
+
+  --app-card-bg: linear-gradient(
+    91.46deg,
+    rgba(190, 78, 255, 0.06) 38%,
+    rgba(255, 74, 183, 0.06) 100%
+  );
+  --app-card-bg-hover: linear-gradient(
+    91.46deg,
+    rgba(190, 78, 255, 0.1) 38%,
+    rgba(255, 74, 183, 0.1) 100%
+  );
+  --app-card-shadow: 0 0 48px rgba(0, 0, 0, 0.45);
+  --app-title-bg: #432b54;
+  --app-title-text: #ffedf8;
+  --app-soft: #f1ebfe;
+  --app-pill-bg: linear-gradient(
+    90deg,
+    rgba(83, 45, 114, 0.1) 0%,
+    rgba(83, 45, 114, 0.26) 50%,
+    rgba(83, 45, 114, 0.1) 100%
+  );
+  --app-on-pill: #ffffff;
+  --app-pill-border: transparent;
+  --app-spec-bg: rgba(255, 237, 248, 0.8);
+  --app-glow: rgba(255, 255, 255, 0.85);
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  font-family: $f-family;
+  font-weight: 400;
+  color: var(--app-text);
+  background: var(--app-bg);
+  transition:
+    background-color $trans-time,
+    color $trans-time;
+  -webkit-font-smoothing: antialiased;
+}
+
+strong {
+  font-weight: 700;
+}
+
+.app-container {
+  width: 100%;
+  max-width: $container-max;
+  margin: 0 auto;
+
+  @media screen and (max-width: 1024px) {
+    padding: 0 16px;
+  }
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  &__top,
+  &__bottom {
+    flex-shrink: 0;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    padding: 24px 0;
+  }
+}

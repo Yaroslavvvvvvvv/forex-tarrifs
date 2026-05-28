@@ -1,0 +1,11 @@
+.app-footer {
+  background: var(--app-surface);
+  border-top: 1px solid var(--app-border);
+  color: var(--app-muted);
+
+  &__inner {
+    min-height: $header-height;
+    display: flex;
+    align-items: center;
+  }
+}

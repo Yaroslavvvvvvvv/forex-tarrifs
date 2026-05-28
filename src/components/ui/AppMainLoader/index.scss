@@ -1,0 +1,59 @@
+.app-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--app-bg);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+
+  &--active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .p-progress-spinner {
+    width: 56px;
+    height: 56px;
+  }
+
+  .p-progress-spinner svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    animation: app-spinner-rotate 2s linear infinite;
+  }
+
+  .p-progress-spinner circle {
+    fill: none;
+    stroke: var(--app-accent);
+    stroke-width: 4;
+    stroke-linecap: round;
+    animation: app-spinner-dash 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes app-spinner-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes app-spinner-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}

@@ -1,0 +1,105 @@
+@use '@/styles/_vars.scss' as *;
+
+.p-selectbutton.p-button-group {
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 55px;
+  padding: 5px 7px;
+  border-radius: 10px;
+  background: var(--app-pill);
+  border: 1px solid var(--app-card-border);
+  gap: 4px;
+
+  .p-button {
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    min-height: 42px;
+    gap: 8px;
+    padding: 9px 13px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--app-text);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    transition:
+      background-color $trans-time,
+      color $trans-time;
+
+    .p-button-label {
+      font-weight: inherit;
+    }
+
+    &:not(.p-highlight):not(.p-disabled):hover {
+      background: var(--app-hover);
+      color: var(--app-text);
+    }
+
+    &.p-highlight {
+      background: var(--app-segment-bg);
+      color: var(--app-segment-text);
+      box-shadow: var(--app-segment-shadow);
+
+      .dc-option {
+        color: var(--app-segment-text);
+      }
+
+      &:hover {
+        background: var(--app-segment-bg);
+      }
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--app-accent);
+      outline-offset: 2px;
+      box-shadow: none;
+    }
+  }
+}
+
+.dc-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 400;
+  color: var(--app-muted);
+
+  .fi {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .p-selectbutton.p-button-group {
+    width: 100%;
+
+    .p-button {
+      flex: 1 1 auto;
+      justify-content: center;
+    }
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .p-selectbutton.p-button-group {
+    flex-wrap: wrap;
+
+    .p-button {
+      flex: 1 1 40%;
+    }
+  }
+}

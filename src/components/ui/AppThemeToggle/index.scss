@@ -1,0 +1,70 @@
+.theme-toggle {
+  --track-bg-light: #dee0e5;
+  --track-bg-dark: #2a2b34;
+  --handle-bg-light: #1b2f47;
+  --handle-bg-dark: #25b0ed;
+  --handle-icon-color: #ffffff;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 52px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background-color: var(--track-bg-light);
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+
+  &__handle {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--handle-bg-light);
+    color: var(--handle-icon-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+      transform 0.25s ease,
+      background-color 0.25s ease;
+  }
+
+  &__icon {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 16px;
+    height: 16px;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.25s ease;
+
+    &--moon {
+      opacity: 0;
+    }
+  }
+
+  &--dark {
+    background-color: var(--track-bg-dark);
+
+    .theme-toggle__handle {
+      background-color: var(--handle-bg-dark);
+      transform: translateX(24px);
+    }
+
+    .theme-toggle__icon--sun {
+      opacity: 0;
+    }
+
+    .theme-toggle__icon--moon {
+      opacity: 1;
+    }
+  }
+}
